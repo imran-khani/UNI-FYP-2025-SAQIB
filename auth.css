@@ -190,6 +190,80 @@
   background-color: #066a63;
 }
 
+/* Order History Items */
+.order-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.order-header {
+  background-color: #f9f9f9;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #333;
+}
+
+.order-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.order-details {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-items {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+.order-total {
+  font-weight: 600;
+  color: #088178;
+  margin: 0 20px;
+}
+
+.order-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+}
+
+.order-status.processing {
+  background-color: #fff8e1;
+  color: #f57c00;
+}
+
+.order-status.shipped {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.order-status.delivered {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.order-status.cancelled {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .auth-form-container {

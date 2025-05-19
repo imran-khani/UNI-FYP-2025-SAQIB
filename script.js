@@ -207,7 +207,23 @@ function displayCart() {
     // Show total amount if cart is not empty
     if (totalAmount) {
       totalAmount.style.display = "block";
-      totalAmount.innerText = `Total: RS ${total.toFixed(2)}`;
+      totalAmount.innerHTML = `
+        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+          <div style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Total: RS ${total.toFixed(2)}</div>
+          <a href="checkout.html" style="text-decoration: none;">
+            <button style="
+              background-color: #088178;
+              color: white;
+              border: none;
+              border-radius: 4px;
+              padding: 12px 30px;
+              font-size: 16px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            ">Proceed to Checkout</button>
+          </a>
+        </div>`;
     }
   }
 }

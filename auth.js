@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('profile-name').textContent = currentUser.name;
     document.getElementById('profile-email').textContent = currentUser.email;
     document.getElementById('profile-greeting').textContent = `#welcome_${currentUser.name.split(' ')[0]}`;
+    
+    // Display order history
+    displayOrderHistory();
   }
   
   // Protect profile page
@@ -138,4 +141,55 @@ function updateNavigation(currentUser) {
       accountNav.querySelector('a').title = "Login";
     }
   }
+}
+
+// Display order history on profile page
+function displayOrderHistory() {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (!currentUser) return;
+  
+  // Get all users to find the current user's orders
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const user = users.find(u => u.id === currentUser.id);
+  
+  if (!user || !user.orders || user.orders.length === 0) {
+    // No orders found
+    document.getElementById('no-orders-message').style.display = 'block';
+    return;
+  }
+  
+  // Hide the no orders message
+  document.getElementById('no-orders-message').style.display = 'none';
+  
+  // Get all orders from localStorage
+  const allOrders = JSON.parse(localStorage.getItem('orders')) || [];
+  
+  // Filter orders for the current user
+  const userOrders = allOrders.filter(order => user.orders.includes(order.id));
+  
+  // Display the orders
+  const orderContainer = document.getElementById('orders-container');
+  
+  userOrders.forEach(order => {
+    const orderDate = new Date(order.date).toLocaleDateString();
+    const orderItems = order.items.length > 1 ? 
+                      `${order.items[0].name} and ${order.items.length - 1} more item(s)` : 
+                      order.items[0].name;
+    
+    const orderElement = document.createElement('div');
+    orderElement.className = 'order-item';
+    orderElement.innerHTML = `
+      <div class="order-header">
+        <div class="order-id">Order #${order.id}</div>
+        <div class="order-date">${orderDate}</div>
+      </div>
+      <div class="order-details">
+        <div class="order-items">${orderItems}</div>
+        <div class="order-total">RS ${order.total.toFixed(2)}</div>
+        <div class="order-status ${order.status.toLowerCase()}">${order.status}</div>
+      </div>
+    `;
+    
+    orderContainer.appendChild(orderElement);
+  });
 }
