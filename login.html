@@ -1,20 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart</title>
+  <title>Login</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="auth.css" />
 </head>
 
-
 <body>
-
-
   <!-- navbar start -->
   <nav id="header">
     <a href="#"><img src="img/logo.png" class="logo" /></a>
@@ -25,64 +22,42 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li id="lg-bag"><a href="cart.html"> <span class="cart-counter">0</span><i class="far fa-shopping-bag"></i></a>
-        </li>
-        <li id="account-nav"><a href="login.html"><i class="far fa-user"></i></a></li>
+        <li id="lg-bag"><a href="cart.html"> <span class="cart-counter">0</span><i class="far fa-shopping-bag"></i></a></li>
+        <li id="account-nav"><a class="active" href="login.html"><i class="far fa-user"></i></a></li>
         <a href="" id="close"><i class="far fa-times"></i></a>
       </ul>
     </div>
     <div id="mobile">
-      <a href="cart.html" id="cart-counter-mobile"><span class="cart-counter">0</span><i
-          class="far fa-shopping-bag"></i></a>
+      <a href="cart.html" id="cart-counter-mobile"><span class="cart-counter">0</span><i class="far fa-shopping-bag"></i></a>
       <i id="bar" class="fas fa-outdent"></i>
     </div>
   </nav>
 
-  <!-- hero section start -->
-
-  <section class="cart-head-header">
-
-    <h2>#your_cart</h2>
-    <p id="page-header-p">start shopping now and complete your purchase!</p>
-
+  <!-- Page Header -->
+  <section class="auth-header">
+    <h2>#login</h2>
+    <p>Sign in to access your account and manage your orders!</p>
   </section>
 
-
-
-
-  <!-- cart section -->
-
-
-  <main id="cart-main">
-
-
-    <div id="empty-message"></div>
-    <div id="cart-items"></div>
-    <div id="total"></div>
-
-
-
-
-  </main>
-
-
-
-
-
-
-  <!-- news letters -->
-  <section id="newsletters" class="section-p1 section-m1">
-    <div id="newstext">
-      <h4>Sign Up for NewsLetters</h4>
-      <p>
-        Get E-mail updates about our latest shop and
-        <span> spexial offers.</span>
-      </p>
-    </div>
-
-    <div class="form">
-      <input type="text" placeholder="Your email address" />
-      <button class="normal">Sign Up</button>
+  <!-- Auth Form Section -->
+  <section class="auth-container">
+    <div class="auth-form-container">
+      <div id="login-form" class="auth-form">
+        <h2>Login</h2>
+        <div id="login-error" class="error-message"></div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="auth-button">Login</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="register.html">Register here</a></p>
+      </div>
     </div>
   </section>
 
@@ -145,13 +120,8 @@
     </div>
   </footer>
 
-
-
-
   <script src="script.js"></script>
   <script src="auth.js"></script>
 </body>
-
-
 
 </html>
